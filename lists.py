@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import random
+import codecs
 from experiment import getExperiment
 class StimList(list):
     """Contains stimuli and metadata
@@ -40,7 +41,7 @@ class StimList(list):
         try:
             # On Mac, Excel uses \r to delimit the rows rather than \n (grr...)
             # so we'll try both ways
-            splitByNewline = open(stimuli,'r').readlines() # split lines by \n
+            splitByNewline = codecs.open(stimuli,'r','utf8').readlines() # split lines by \n
             lines = []
             for line in splitByNewline: lines.extend(line.split('\r'))
             lines = [[item.replace('\\n','\n') for item in line.rstrip().split('\t')] for line in lines if line.strip() != ""]

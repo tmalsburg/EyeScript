@@ -19,6 +19,7 @@ import VisionEgg.GL as gl
 from UserDict import DictMixin
 from interest_area import InterestArea
 from shapes import Rectangle
+import codecs
 try:
     import winsound
 except:
@@ -245,7 +246,7 @@ class Display(DictMixin):
         """
         directory = os.path.dirname(filename)
         if not os.path.isdir(directory): os.makedirs(directory)
-        iaFile = open(filename,'w')
+        iaFile = codecs.open(filename,'w','utf8')
         for i,ia in enumerate(self['interest_areas']):
             iaFile.write("%s\t%s\t%s\t%s\n"%(ia.shapeName(),i+1,ia.coordinateString(),ia.label))
         iaFile.close()
