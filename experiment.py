@@ -205,14 +205,15 @@ class Experiment(DictMixin):
         def currentData(self):
             return self.currentNode
             
-        def logAttributes(self,**attributes):
+        def logAttributes(self, attributes_dict={}, **attrs):
             """Records metadata associated with the current session, block, trial, or ScriptStep.
 
             This metadata is included in all events logged during this session/block/trial/ScriptStep.
             
-            logAttributes is called with keyword arguments specifying the attributes to be logged and their values.
+            logAttributes is called with keyword arguments specifying the attributes to be logged and their values.  Unicode objects are not allowed as keywords, therefore alternatively attributes can be supplied wrapped in attributes_dict.
             """
-            self.currentNode.update(attributes)
+            attrs.update(attributes_dict)
+            self.currentNode.update(attrs)
         def push(self,**attributes):
             """Lets the EventLog know that the experiment is entering a new block, trial, or ScriptStep.
 

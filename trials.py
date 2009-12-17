@@ -39,7 +39,7 @@ class Trial:
             Trial.trialNumber += 1
             getLog().push()
             getLog().logAttributes(trialNumber=Trial.trialNumber)
-            getLog().logAttributes(**getattr(self,'metadata',{}))
+            getLog().logAttributes(getattr(self,'metadata',{}))
             getTracker().sendMessage('TRIALID %s'%(Trial.trialNumber))
             getTracker().drawText("Trial_%s\n"%(Trial.trialNumber),pos=(1,20))
             self.sendDataViewerBG()
