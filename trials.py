@@ -223,7 +223,7 @@ def gcFixation(target=None,color=None,bgcolor=None,duration=None,buffer_size=Non
 
     The Eyetracker
     """
-    if buffer_size == None:  buffer_size = getExperiment()['buffer_size']
+    if buffer_size == None:  buffer_size = getExperiment()['gcbuffer_size']
     if not getExperiment().recording:
         raise EyetrackerError("Must be recording when gcFixation is called!")
     target = target or getExperiment().params.get('fixation_target',(
