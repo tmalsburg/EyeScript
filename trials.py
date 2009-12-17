@@ -43,6 +43,7 @@ class Trial:
             getLog().logAttributes(getattr(self,'metadata',{}))
             getTracker().sendMessage('TRIALID %s'%(Trial.trialNumber))
             getTracker().drawText("Trial_%s\n"%(Trial.trialNumber),pos=(1,20))
+            getTracker().sendCommand("record_status_message 'TRIALID %s'"%(Trial.trialNumber))
             self.sendDataViewerBG()
             self.sendRTperiod()
             try:
