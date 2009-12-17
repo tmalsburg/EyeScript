@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class InterestArea:
     """
     Represents a region of the screen, for eye data reporting purposes.

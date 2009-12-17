@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Contains classes for presenting stimuli and instructions on the screen
 
 displays.py defines the top-level Display class, along with child classes for specific types of stimuli

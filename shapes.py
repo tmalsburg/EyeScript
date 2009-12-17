@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Contains classes defining screen regions.  Such regions may be used to define interest areas for the Data Viewer, or to trigger events in gaze-contingent paradigms.
 """
 from pygame import Rect

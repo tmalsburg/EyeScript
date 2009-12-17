@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """EyeScript scripts will normally not need to directly deal with events, but will work through ResponseCollector objects instead.
 """
 

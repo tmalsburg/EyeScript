@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Import pygame's constants for identifying events, and add some of our own
 from pygame.locals import *
 SPEECH_RECOGNITION = USEREVENT+1

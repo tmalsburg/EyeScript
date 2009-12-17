@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Contains classes for accepting and logging input via various modalities.
     
     response_collectors.py defines the abstract ResponseCollector class and modality-specific response collector classes inheriting from ResponseCollector.

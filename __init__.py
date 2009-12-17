@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Package for scripting eyetracker experiments (and non-eyetracker behavioral experiments)
 """
 __author__ = "Mason Smith <masonrs@umich.edu>"

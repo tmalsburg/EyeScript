@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Contains classes for monitoring the various input devices for responses.
 
 EyeScript scripts normally will use ResponseCollector objects and the checkForResponse function in Experiment.py, rather than directly using the classes in this module.

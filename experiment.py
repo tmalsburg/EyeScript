@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """This module defines the Experiment class for high-level control of the experiment.
 
 It also contains classes and functions for data logging, as well as a few useful utility functions.

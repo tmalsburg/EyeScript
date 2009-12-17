@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Defines the abstract Trial class from which all trial definitions inherit. Also defines functions that may be called within a trial for eyetracker communication.
 """
 from experiment import getTracker, getExperiment, getLog, calibrateTracker,checkForResponse,TrialAbort,Error
