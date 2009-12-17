@@ -74,7 +74,7 @@ class Experiment(DictMixin):
             for attribute in ['subject'] + self['session_info']: print "%s: %s"%(attribute,self[attribute])
             if self['subject'] > 0 and (os.path.isfile(self.eyedatafile) or os.path.isfile(self.textdatafile)):
                print "WARNING: data file already exists and will be overwritten unless the session info is changed."
-            if raw_input("\nKeep the session info as is? (y/n): ")=="y": break
+            if raw_input("\nKeep the session info as is? (y/n): ")!="n": break
 
         
         self.log = self.EventLog(**dict([(attribute,self[attribute]) for attribute in ['subject']+self['session_info']]))
