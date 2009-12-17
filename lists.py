@@ -52,15 +52,6 @@ class StimList(list):
             thelist = [dict(zip(lines[0],line)) for line in lines[1:]]
         else:
             thelist = []
-        print "Checking for non-ascii characters..."
-        for item in thelist:
-            for s in item.values():
-                if type(s)==type(""):
-                    for i,c in enumerate(s):
-                        if ord(c)>127:
-                            print item
-                            raise "Non-ascii character at position %d in %s: '%s'"%(i,s,c)
-        print "No non-ascii characters."
         return thelist
         
     def resetList(self):
