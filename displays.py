@@ -13,7 +13,7 @@ response_device keyword in the Display.__init__ docs, below.
 """
 import pygame, VisionEgg.Core, os, pylink, pygame.surfarray, pygame.image
 from VisionEgg.Textures import Texture,TextureStimulus,TextureTooLargeError
-from VisionEgg.Text import Text
+from VisionEgg.Text import PangoText
 from experiment import getExperiment,getLog,checkForResponse,getTracker,Error
 import VisionEgg.GL as gl
 from UserDict import DictMixin
@@ -314,10 +314,8 @@ class TextDisplay(Display):
         
         margins = self['margins']
         align = self['align']
-        textparams = {'font_size':self['font_size'],
-                      'font_name':(pygame.font.match_font(self['font_name'],self['bold'],self['italic']) or self['font_name']),
-                      'color':self['color']
-                      }
+        font_desc_string = (pygame.font.match_font(self['font_name'], self['bold'], self['italic']) or self['font_name']) + " " + str(self['font_size'])
+        textparams = {'font_descr_string': font_desc_string, 'color':self['color']}
       
         # height will be the total height of all the lines of text
         height = 0
@@ -342,7 +340,7 @@ class TextDisplay(Display):
                 for i in range(linelen):
                     # Find the width of the first i+1 words
                     try:
-                        firstwords = Text(text=line.rsplit(None,linelen-i-1)[0],**textparams)
+                        firstwords = PangoText(text=line.rsplit(None,linelen-i-1)[0],**textparams)
                     except TextureTooLargeError:
                         if i==0: raise WordTooLargeError(line.split()[0])
                         break
@@ -351,7 +349,7 @@ class TextDisplay(Display):
                         if i==0: raise WordTooLargeError(line.split()[0])
                         lines.append(line.split(None,i)[-1])
                         break
-                    wordwidths[-1].append(Text(text=line.split()[i],**textparams).parameters.size[0])
+                    wordwidths[-1].append(PangoText(text=line.split()[i],**textparams).parameters.size[0])
                     rightedges[-1].append(rightedge)
                     lineText = firstwords
                     
@@ -365,7 +363,7 @@ class TextDisplay(Display):
                 wordsNotFittingCount = 1 + len(testString.split())
                 while True:
                     try:
-                        testText = Text(text=testString,**textparams)
+                        testText = PangoText(text=testString,**textparams)
                     except TextureTooLargeError:
                         wordsNotFitting = testString
                         wordsNotFittingWidth = None
@@ -412,7 +410,7 @@ class TextDisplay(Display):
                 if wordsFitting == "" and line: raise WordTooLargeError(line.split()[0])
                 if wordsFitting != line: lines.append(line.split(None,wordsFittingCount)[-1]) # Add the part that didn't fit as a new line
 
-            stimulus.append(lineText or Text(text=" ",**textparams))
+            stimulus.append(lineText or PangoText(text=" ",**textparams))
         height = sum([lineText.parameters.size[1] for lineText in stimulus])+self['vertical_spacing']*(len(stimulus) - 1)
             
         
