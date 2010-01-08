@@ -9,6 +9,7 @@ from pylink.EyeLinkCoreGraphics.EyeLinkCoreGraphicsVE import EyeLinkCoreGraphics
 import VisionEgg.Core
 import os
 import pygame
+import codecs
 from UserDict import DictMixin
 
 
@@ -50,12 +51,12 @@ class Experiment(DictMixin):
             os.mkdir(self['data_directory'])
             
         while 1:
-            subjectString = self['subject'] = raw_input("Enter subject ID (0 for no data logging): ")
+            subjectString = self['subject'] = raw_input("Enter subject ID (0 for no data logging): ").decode('437')
             if self['subject'].isdigit():
                 self['subject'] = int(self['subject'])
                 subjectString = "%03d"%self['subject']
             for attribute in self['session_info']:
-                self[attribute] = raw_input("Enter %s: "%attribute)
+                self[attribute] = raw_input("Enter %s: "%attribute).decode('437')
                 if self[attribute].isdigit(): self[attribute] = int(self[attribute])
             
             sessionsuffix = 'session' in self['session_info'] and "_%s"%self['session'] or ""
@@ -255,7 +256,7 @@ class Experiment(DictMixin):
 
             logChildren(self.currentNode)
             
-            logfile = open(textdatafile,'w')
+            logfile = codecs.open(textdatafile,'w','utf8')
             self.writeEvents(data,logfile)
             logfile.close()
 
