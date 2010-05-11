@@ -51,10 +51,15 @@ class Experiment(DictMixin):
             os.mkdir(self['data_directory'])
             
         while 1:
-            subjectString = self['subject'] = raw_input("Enter subject ID (0 for no data logging): ").decode('437')
-            if self['subject'].isdigit():
-                self['subject'] = int(self['subject'])
-                subjectString = "%03d"%self['subject']
+            while 1:
+                subjectString = self['subject'] = raw_input("Enter subject ID (0 for no data logging): ").decode('437')
+                if self['subject'].isdigit():
+                    self['subject'] = int(self['subject'])
+                    subjectString = "%03d"%self['subject']
+                    break
+                else:
+                    print "Subject ID has to be a number."
+
             for attribute in self['session_info']:
                 self[attribute] = raw_input("Enter %s: "%attribute).decode('437')
                 if self[attribute].isdigit(): self[attribute] = int(self[attribute])
