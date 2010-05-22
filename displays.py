@@ -314,7 +314,8 @@ class TextDisplay(Display):
         
         margins = self['margins']
         align = self['align']
-        font_desc_string = (pygame.font.match_font(self['font_name'], self['bold'], self['italic']) or self['font_name']) + " " + str(self['font_size'])
+        #font_desc_string = (pygame.font.match_font(self['font_name'], self['bold'], self['italic']) or self['font_name']) + " " + str(self['font_size'])
+        font_desc_string = str(self['font_name']) + " " + str(self['font_size'])
         textparams = {'font_descr_string': font_desc_string, 'color':self['color']}
       
         # height will be the total height of all the lines of text
@@ -412,6 +413,7 @@ class TextDisplay(Display):
 
             stimulus.append(lineText or PangoText(text=" ",**textparams))
         height = sum([lineText.parameters.size[1] for lineText in stimulus])+self['vertical_spacing']*(len(stimulus) - 1)
+        self['singleline_height'] = stimulus[0].parameters.size[1]
             
         
         if align[1]=='top':
