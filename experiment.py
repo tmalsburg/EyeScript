@@ -51,18 +51,23 @@ class Experiment(DictMixin):
             os.mkdir(self['data_directory'])
             
         while 1:
-            while 1:
-                subjectString = self['subject'] = raw_input("Enter subject ID (0 for no data logging): ").decode('437')
-                if self['subject'].isdigit():
-                    self['subject'] = int(self['subject'])
-                    subjectString = "%03d"%self['subject']
-                    break
-                else:
-                    print "Subject ID has to be a number."
-
+            subjectString = self['subject'] = raw_input("Enter subject ID (0 for no data logging): ").decode('437')
+            if self['subject'].isdigit():
+                self['subject'] = int(self['subject'])
+                subjectString = "%03d"%self['subject']
             for attribute in self['session_info']:
-                self[attribute] = raw_input("Enter %s: "%attribute).decode('437')
+                longattr = attribute
+                if attribute == "study": longattr = "field of study"
+                if attribute == "gender": longattr = "gender (m/w)"
+                if attribute == "glasses": longattr = "glasses/lenses?"
+                if attribute == "alc24": longattr = "alcohol in last 24h? (y/n)"
+                if attribute == "hsleep": longattr = "hours of sleep last night"
+                if attribute == "nativelang": longattr = "mother tongue"
+                if attribute == "origin": longattr = "origin (Bundesland)"
+                if attribute == "time": longattr = "time (morning/noon/afternoon/evening)"			
+                self[attribute] = raw_input("Enter %s: "%longattr).decode('437')
                 if self[attribute].isdigit(): self[attribute] = int(self[attribute])
+                if self[attribute] == "": self[attribute] = "."
             
             sessionsuffix = 'session' in self['session_info'] and "_%s"%self['session'] or ""
             self['data_file_root_name'] = self['data_filename_prefix']+subjectString+sessionsuffix
