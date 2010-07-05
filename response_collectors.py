@@ -285,7 +285,7 @@ class GazeResponseCollector(ResponseCollector):
             action = getTracker().isRecording()
             if action != pylink.TRIAL_OK:
                 raise TrialAbort(action)
-            self.checkEyeLink()
+            return self.checkEyeLink()
         else:
             # So that the experiment can be tested without the eyetracker,
             # just fake a response after 2000 milliseconds.
@@ -365,21 +365,23 @@ class ContinuousGaze(GazeResponseCollector):
               
         else:
             # Check whether we have a fixation in one of the areas in possible_resp
-            event = getTracker().getFloatData()
-##                        print "event.getEye(): %d"%(event.getEye())
-##                        print "event.getStartGaze(): (%d,%d)"%event.getStartGaze()
-            if event.getType() == pylink.STARTFIX and event.getEye() == self.eyeUsed:
-                for area in self.params['possible_resp']:
-                    if area.contains(event.getStartGaze()):
-                        self.fixtime=event.getStartTime()
-                        self.fixatedArea = area
-                        break
-            if (event.getType() == pylink.FIXUPDATE or event.getType() == pylink.ENDFIX) and event.getEye() == self.eyeUsed:
-                for area in self.params['possible_resp']:
-                    if area.contains(event.getAverageGaze()):
-                        self.fixtime=event.getStartTime()
-                        self.fixatedArea = area
-                        break
+            eventType = getTracker().getNextData()
+            if eventType == pylink.STARTFIX or eventType == pylink.FIXUPDATE or eventType == pylink.ENDFIX:
+                event = getTracker().getFloatData()
+    ##                        print "event.getEye(): %d"%(event.getEye())
+    ##                        print "event.getStartGaze(): (%d,%d)"%event.getStartGaze()
+                if event.getType() == pylink.STARTFIX and event.getEye() == self.eyeUsed:
+                    for area in self.params['possible_resp']:
+                        if area.contains(event.getStartGaze()):
+                            self.fixtime=event.getStartTime()
+                            self.fixatedArea = area
+                            break
+                if (event.getType() == pylink.FIXUPDATE or event.getType() == pylink.ENDFIX) and event.getEye() == self.eyeUsed:
+                    for area in self.params['possible_resp']:
+                        if area.contains(event.getAverageGaze()):
+                            self.fixtime=event.getStartTime()
+                            self.fixatedArea = area
+                            break
         return False
         
 
