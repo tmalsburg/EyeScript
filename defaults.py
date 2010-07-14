@@ -100,7 +100,7 @@ import response_collectors
 defaultParams = dict(
     
     # SCREEN DEFAULTS
-    screen_size=(1024,768),
+    screen_size=(1600,1200),
     bits_per_pixel=16,
     refresh_rate=120, #Hz
 
@@ -158,7 +158,7 @@ defaultParams = dict(
     min_fixation = 800,  # Minimum fixation duration (ms) on a gaze-contingent trigger before it's triggered
     buffer_size = 0,
     gcbuffer_size = 35,
-	gcTargetCoords = (20,384),
+	gcTargetCoords = (20,768/2),
     # buffer_size = the distance, in pixels, between the left and right of the stimuli and the edge of the enclosing interest area, in pixels.
     # To calculate appropriate buffer values, estimate
     # the subject's distance from the screen, and assume tracker error of 0.5 (liberal) to
