@@ -173,7 +173,10 @@ def startRecording():
     getTracker().startRecording(1,1,1,1)
     getExperiment().recording = True
     pylink.beginRealTimeMode(100)
-    if not getTracker().waitForBlockStart(100,1,1):
+    try:
+        if not getTracker().waitForBlockStart(1000,1,1):
+            raise Exception("waitForBlockStart failed")
+    except Exception:
         getTracker().drawText("LINK DATA NOT RECEIVED!",pos=(1,20))
         pylink.endRealTimeMode()
         pylink.msecDelay(2000)
