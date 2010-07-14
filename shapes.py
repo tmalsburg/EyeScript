@@ -7,7 +7,7 @@ class Shape:
     
     Attribute:  rect, the bounding rectangle
     """
-    def __init__(self,*coordinates):
+    def __init__(self,coordinates, name="shape"):
         """Create a shape, given some coordinates.
         
         It may take either
@@ -17,9 +17,13 @@ class Shape:
         (see pygame Rect documentation at http://www.pygame.org/docs/ref/rect.html; the Shape argument(s) are passed directly to Rect)
         """
         self.rect = Rect(*coordinates)
+        self.name = name
     
     def __str__(self):
         return "%s_%s"%(self.shapeName(),self.rect)
+
+    def shapeName(self):
+        return self.name
     
     def contains(self,point):
         """Returns a boolean specifying whether the interest area contains the point.
