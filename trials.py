@@ -74,7 +74,9 @@ class Trial:
                     raise
             else:
                 getLog().logAttributes(trial_abort=0)
-                for key,value in getLog().currentData().iteritems(): setTrialVar(key,value)
+                for key,value in getLog().currentData().iteritems():
+                    setTrialVar(key,value)
+                    pygame.time.delay(1)
                 getLog().pop()
                 getTracker().sendMessage('TRIAL_RESULT 0')
                 return result
