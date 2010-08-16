@@ -319,6 +319,13 @@ class GazeSample(GazeResponseCollector):
                     self.params['rt_time'] = sample.getTime()
                     self.params['rt'] = sample.getTime() - self.params['onset_time']
                     self.params['resp'] = area
+                    # TODO: Test the following code:
+                    # In particular: is the number specifying the offset
+                    # between here and the eye tracker meaningful and correct?
+                    # What's the meaning of this number anyway?  And what's it
+                    # used for?
+                    getTracker().sendMessage("%d %s.END_RT"%(self['rt_time']-pylink.currentTime(),
+                                                             self['name']))
                     self.stop()
                     return True
         return False
@@ -357,6 +364,7 @@ class ContinuousGaze(GazeResponseCollector):
                         self.params['rt_time'] = self.fixtime
                         self.params['rt'] = self.params['rt_time'] - self.params['onset_time']
                         self.params['resp'] = self.fixatedArea
+                        getTracker().sendMessage("%s.END_RT" % self['name'])
                         self.stop()
                         return True
                 else: # The eye has left the interest area.  
