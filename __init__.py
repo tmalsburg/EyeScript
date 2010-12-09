@@ -8,7 +8,7 @@ from experiment import formatMoney, Experiment, getExperiment, runSession, calib
 from trials import Trial,driftCorrect,startRecording,stopRecording,gcFixation,PupilCalibrationTrial
 from displays import TextDisplay, ImageDisplay, ContinueDisplay, SlideDisplay, AudioPresentation
 from lists import StimList, LatinSquareList, LingerList, parseRegions
-from response_collectors import Keyboard,ContinuousGaze,EyeLinkButtons,MouseDownUp,Speech,CedrusButtons,MouseWidgetClick
+from response_collectors import Keyboard,ContinuousGaze,GazeSample,EyeLinkButtons,MouseDownUp,Speech,CedrusButtons,MouseWidgetClick
 from shapes import Rectangle,Ellipse
 from interest_area import InterestArea
 
