@@ -304,6 +304,10 @@ class TextDisplay(Display):
     bgcolor, duration:  same as in Display
     """
 
+    def run(self, onset=None):
+        print "  Text:", self.text
+        Display.run(self, onset)
+
     def prepareStimulus(self, text):
         """helper method, not directly called in EyeScript scripts in general.
         
@@ -312,6 +316,7 @@ class TextDisplay(Display):
         prepareStimulus also calculates interest areas if the interest_area_file parameter has been set (and if interest areas have not already been set)
         """
         
+        self.text = text
         margins = self['margins']
         align = self['align']
         #font_desc_string = (pygame.font.match_font(self['font_name'], self['bold'], self['italic']) or self['font_name']) + " " + str(self['font_size'])
@@ -619,11 +624,17 @@ class ContinueDisplay(SlideDisplay):
     continue_text:  the text to display at the bottom of the screen after a delay (e.g. "Press any key to continue.")
     continue_delay:  the delay, in ms, before the continue text is displayed and responses are accepted.
     """
+
+    def run(self, onset=None):
+        print "  Message:", self.text
+        SlideDisplay.run(self, onset)
+
     def prepareStimulus(self,text):
         """helper method, not directly used in EyeScript scripts in general.
         """
+        self.text = text
         continueParams = self.params.copy()
-        continueParams['align']=('center','bottom')
+        continueParams['align'] = ('center','bottom')
         firstParams = self.params.copy()
         firstParams['response_collectors'] = []
         firstParams['duration'] = self['continue_delay']
