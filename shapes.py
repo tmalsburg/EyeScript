@@ -7,7 +7,7 @@ class Shape:
     
     Attribute:  rect, the bounding rectangle
     """
-    def __init__(self,coordinates, name="shape"):
+    def __init__(self, coordinates, name="shape"):
         """Create a shape, given some coordinates.
         
         It may take either
