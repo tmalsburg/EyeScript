@@ -298,12 +298,12 @@ def gcFixation(target=None,color=None,bgcolor=None,duration=None,buffer_size=Non
         pygame.time.delay(duration)
     getExperiment().eyelinkGraphics.erase_cal_target()
 
-def gcFlashFixation(target=None, color=None, bgcolor=None, duration=400,
+def gcFlashFixation(target=None, color=None, bgcolor=None, duration=400, delay=100,
                     buffer_size=None, nflashes=6):
 
    for i in range(0, nflashes):
        gcFixation(target, color, bgcolor, duration, buffer_size)
-       pygame.time.delay(100)
+       pygame.time.delay(delay)
      
   
 
