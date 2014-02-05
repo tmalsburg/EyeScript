@@ -17,6 +17,4 @@ EyeScript was initially developed by Mason Smith in Rick Lewis' lab.  Rick Lewis
 - EyeScript is free software (published under GPL-2 license), which means that it can be used and modified freely by anyone
 
 ## Documentation
-- Installing EyeScript
-- Using EyeScript
-- Developing EyeScript
+The documentation for EyeScript can be found in the [wiki](https://github.com/tmalsburg/EyeScript/wiki).  We have a lot of documentation but it will take a while to migrate it to wiki format.
