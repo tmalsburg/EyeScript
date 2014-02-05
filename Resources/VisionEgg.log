@@ -1,0 +1,10 @@
+2014-02-05 23:23:11,481 (89577) INFO: Script displayUnicode.py started Vision Egg 1.2.1 with process id 89577.
+2014-02-05 23:23:11,816 (89577) CRITICAL: Traceback (most recent call last):
+  File "displayUnicode.py", line 29, in <module>
+    import VisionEgg.Text
+  File "/usr/local/Cellar/python/2.7.6/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/visionegg-1.2.1-py2.7-macosx-10.6-x86_64.egg/VisionEgg/Text.py", line 26, in <module>
+    import VisionEgg.Textures
+  File "/usr/local/Cellar/python/2.7.6/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/visionegg-1.2.1-py2.7-macosx-10.6-x86_64.egg/VisionEgg/Textures.py", line 28, in <module>
+    import Image, ImageDraw                         # Python Imaging Library packages
+ImportError: No module named Image
+

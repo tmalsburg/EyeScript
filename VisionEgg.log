@@ -1,0 +1,32 @@
+2014-02-05 23:24:46,568 (89606) INFO: Script Resources/displayUnicode.py started Vision Egg 1.2.1 with process id 89606.
+2014-02-05 23:24:46,725 (89606) CRITICAL: Traceback (most recent call last):
+  File "Resources/displayUnicode.py", line 29, in <module>
+    import VisionEgg.Text
+  File "/usr/local/Cellar/python/2.7.6/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/visionegg-1.2.1-py2.7-macosx-10.6-x86_64.egg/VisionEgg/Text.py", line 26, in <module>
+    import VisionEgg.Textures
+  File "/usr/local/Cellar/python/2.7.6/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/visionegg-1.2.1-py2.7-macosx-10.6-x86_64.egg/VisionEgg/Textures.py", line 28, in <module>
+    import Image, ImageDraw                         # Python Imaging Library packages
+ImportError: No module named Image
+
+2014-02-06 00:21:24,121 (48022) INFO: Script Resources/displayUnicode.py started Vision Egg 1.2.1 with process id 48022.
+2014-02-06 00:21:24,423 (48022) CRITICAL: Traceback (most recent call last):
+  File "Resources/displayUnicode.py", line 29, in <module>
+    import VisionEgg.Text
+  File "/usr/local/Cellar/python/2.7.6/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/visionegg-1.2.1-py2.7-macosx-10.6-x86_64.egg/VisionEgg/Text.py", line 30, in <module>
+    import VisionEgg.Textures
+  File "/usr/local/Cellar/python/2.7.6/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/visionegg-1.2.1-py2.7-macosx-10.6-x86_64.egg/VisionEgg/Textures.py", line 28, in <module>
+    import Image, ImageDraw                         # Python Imaging Library packages
+ImportError: No module named Image
+
+2014-02-06 00:26:24,547 (48081) INFO: Script Resources/displayUnicode.py started Vision Egg 1.2.1 with process id 48081.
+2014-02-06 00:26:24,756 (48081) CRITICAL: Traceback (most recent call last):
+  File "Resources/displayUnicode.py", line 29, in <module>
+    import VisionEgg.Text
+  File "/usr/local/Cellar/python/2.7.6/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/visionegg-1.2.1-py2.7-macosx-10.6-x86_64.egg/VisionEgg/Text.py", line 30, in <module>
+    import VisionEgg.Textures
+  File "/usr/local/Cellar/python/2.7.6/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/visionegg-1.2.1-py2.7-macosx-10.6-x86_64.egg/VisionEgg/Textures.py", line 41, in <module>
+    import _imaging
+ImportError: No module named _imaging
+
+2014-02-06 00:26:48,670 (48085) INFO: Script Resources/displayUnicode.py started Vision Egg 1.2.1 with process id 48085.
+2014-02-06 00:26:49,078 (48085) INFO: No Vision Egg logo :( because of error while trying to display image in GUI.GraphicsConfigurationWindow: <type 'exceptions.ImportError'>: No module named _imaging
