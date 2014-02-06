@@ -3,7 +3,7 @@ EyeScript
 
 EyeScript is a toolbox for designing stimulus presentation and experimental control programs.  It provides building blocks that can be combined very flexibly provided some basic Python programming skills.  EyeScript can be seen as an alternative to programs such as Experiment Builder by SR Research and Presentation by Neurobehavioral Systems.  A benefit of EyeScript is that it offers more flexibility than most other stimulus presentation programs.  This comes at the expense of some added complexity for the users.  Nevertheless, designing simple experiments is actually quite easy.
 
-EyeScript was initially developed by Mason Smith in Rick Lewis' lab.  Rick Lewis was so kind to share EyeScript with Shravan Vasishth's group where it was heavily used to conduct eyetracking and ERP experiments on human sentence processing.  Over the last years, members of Shravan Vasishth's lab added some new features (like Unicode support) and fixed some bugs.
+EyeScript was initially developed by Mason Smith in Rick Lewis' lab (University of Michigan).  Rick Lewis was so kind to share EyeScript with Shravan Vasishth's group at University of Potsdam where it was heavily used to conduct eyetracking and ERP experiments on human sentence processing.  Over the last years, members of Shravan's lab also added new features (like Unicode support) and fixed some bugs.
 
 ## Key features
 - Runs on Linux, OS X, and Windows
