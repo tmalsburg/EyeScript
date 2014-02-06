@@ -38,12 +38,12 @@ import time
 
 import sys
 
-import pygame.mixer
+from pygame import mixer
 import pygame.event
 from pygame.constants import *
 import array
 import pygame.image
-import Image
+from PIL import Image
 import PIL.ImageDraw
 import pygame.draw
 
